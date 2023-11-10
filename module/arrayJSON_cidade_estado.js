@@ -13,11 +13,12 @@ const getListaDeEstados = function(){
     listaEstadosJSON.uf = listaEstadosArray
     listaEstadosJSON.quantidade = listaEstadosArray.length
 
-    console.log(listaEstadosJSON)
+
     return listaEstadosJSON
 }
-
 // getListaDeEstados()
+
+
 
 const getDadosEstado = function(siglaDigitada){
 
@@ -37,12 +38,12 @@ const getDadosEstado = function(siglaDigitada){
 
     })
 
-    
-    console.log(dadosEstadoJSON)
+return dadosEstadoJSON 
 
 }
-
 // getDadosEstado('SP')
+
+
 
 const getCapitalEstado = function(siglaEscolhida){
     
@@ -59,10 +60,11 @@ const getCapitalEstado = function(siglaEscolhida){
         }
     })
 
-    console.log(dadosCapitalJSON)
+    return dadosCapitalJSON
 }
-
 // getCapitalEstado('AC')
+
+
 
 const getEstadosRegiao = function(regiaoEstado){
     let estadoReg = String(regiaoEstado)
@@ -84,14 +86,12 @@ const getEstadosRegiao = function(regiaoEstado){
     })
 
     estadosRegiaoJSON.estados = regiaoEstadoArray
-
-    console.log(estadosRegiaoJSON)
-    
-
+    return estadosRegiaoJSON
 
 }
-
 // getEstadosRegiao('Sul')
+
+
 
 const getCapitalPais = function(){
     let paisCap = []
@@ -114,12 +114,12 @@ const getCapitalPais = function(){
 })
 
 capital.capitais = paisCap
-console.log(capital)
 return capital
     
 }
-
 // getCapitalPais()
+
+
 
 const getCidades = function(sigla){
    let siglaEstado = sigla
@@ -143,7 +143,16 @@ const getCidades = function(sigla){
     })
 
     cidades.cidades = cidadesEstado
-    console.log(cidades)
+    return cidades
 }
 
 // getCidades('AC')
+
+module.exports={
+    getCapitalEstado,
+    getCapitalPais,
+    getCidades,
+    getDadosEstado,
+    getEstadosRegiao,
+    getListaDeEstados
+}
