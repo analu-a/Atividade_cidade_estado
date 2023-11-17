@@ -24,6 +24,7 @@ const getDadosEstado = function(siglaDigitada){
 
     let sigla = siglaDigitada
    let dadosEstadoJSON = {}
+   let status = false
 
    cidade_estado.estadosCidades.estados.forEach(function(estado){
 
@@ -33,12 +34,17 @@ const getDadosEstado = function(siglaDigitada){
             dadosEstadoJSON.descricao = estado.nome
             dadosEstadoJSON.capital = estado.capital
             dadosEstadoJSON.regiao = estado.regiao
-
+            status = true
         }
 
     })
 
-return dadosEstadoJSON 
+    if(status){
+        return dadosEstadoJSON 
+    } else{
+        return false
+    }
+
 
 }
 // getDadosEstado('SP')
@@ -49,7 +55,7 @@ const getCapitalEstado = function(siglaEscolhida){
     
     let sigla = siglaEscolhida
     let dadosCapitalJSON = {}
-
+    let status = false
     cidade_estado.estadosCidades.estados.forEach(function(estado){
 
         if(estado.sigla.includes(sigla)){
@@ -57,10 +63,15 @@ const getCapitalEstado = function(siglaEscolhida){
             dadosCapitalJSON.uf = estado.sigla
             dadosCapitalJSON.descricao = estado.nome
             dadosCapitalJSON.capital = estado.capital
+            status = true
         }
     })
 
-    return dadosCapitalJSON
+    if(status){
+        return dadosCapitalJSON
+    } else{
+        return false
+    }
 }
 // getCapitalEstado('AC')
 
